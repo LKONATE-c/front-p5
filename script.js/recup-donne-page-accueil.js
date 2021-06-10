@@ -16,7 +16,7 @@ fetch("http://localhost:3000/api/teddies")
 });
 function displayProducts(products){
   for(const product of products){
-    console.log(product)
+    
    
     document.getElementById("products").innerHTML +=
 
