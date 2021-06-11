@@ -42,6 +42,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                    
             </div>
         </div>`
+        
         getproduct().then(data=> {
             let option;
             Object.entries(data.colors).forEach(color => {
