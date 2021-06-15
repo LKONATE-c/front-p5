@@ -18,7 +18,10 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
   });
   function displayProduct(product){
       
-    
+    //fction map qui apl une l argument qui a une fct 
+      const map1 = product.colors.map(x => `<option value=${x}>${x}</option> ` );
+
+      const option = map1.join('');
       
      
       document.getElementById("product").innerHTML +=
@@ -34,34 +37,17 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-price">Prix:&nbsp;${product.price / 100} &#8364;</p>
                     <p class="card-text">Description:${product.description}</p>
-                    <a href="products.html?id=${product._id}" class="stretched-link"></a>
-                    <p class="card-colors">colors:&nbsp;${product.colors}</p>
                     <a id="add-cart cart1" href="#">add cart </a>
                     <label="colors-selection">choix de la couleur:</label>
                     <select color="color-name" id="colors-selection">
-                    <option value="color">""</option>
-                    <option value="color">""</option>
-                    <option value="color">""</option>
-
-                    
-                </div>
-
-                   
+                    ${option}
+                </div>   
             </div>
         </div>`
     }
 
     
-    function color(colors) {
-        for (let i=0; i< colors.length; i++) {
-
-            let color = colors[i]
-        }
-
-
-
-    }
-
+   
 
 
 
