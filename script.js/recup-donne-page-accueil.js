@@ -24,7 +24,7 @@ function displayProducts(products){
     //UTILisation de backtik
     `
    
-    <div class="col-12 col-lg-4 mx-auto">
+    <div class="col-12 col-md-4 mx-auto">
         <div class="card">
             <img class=”card-img-top” src="${product.imageUrl}" alt="">
             <div class="card-body">
