@@ -18,7 +18,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
   });
   function displayProduct(product){
       
-    //fction map qui apl une l argument qui a une fct 
+    //Utilisation de map Fonction appelée pour chaque élément de colors
       const map1 = product.colors.map(x => `<option value=${x}>${x}</option> ` );
 
       const option = map1.join('');
@@ -37,59 +37,51 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-price">Prix:&nbsp;${product.price / 100} &#8364;</p>
                     <p class="card-text">Description:${product.description}</p>
-                    <a id="add-cart cart1" href="#">add cart </a>
-                    <label="colors-selection">choix de la couleur:</label>
-                    <select color="color-name" id="colors-selection">
-                    ${option}
+                    <form>
+                        <label="colors-selection">choix de la couleur:</label>
+                        <select color="color-name" id="colors-selection">
+                            ${option}
+                        </select>
+                    </form>
+                    <button id="btn-add-cart " type="submit" name="btn-add-cart ">Ajouter au panier</buton>
                 </div>   
             </div>
         </div>`
-    }
-
-    
    
 
+    //-----------gestion du panier ------------//
 
-
-
-
-
-
-
-
-     /*
-    let carts = document.querySelectorAll('.add-cart');
-   vire la boucle
+    let carts = document.querySelectorAll('#btn-add-cart');
+   
     for (let i=0; i < carts.lenght; i++){
         carts[i].addEventlistener('click',() => {
+            cartNumbers();
             
 
         })
        
-
+            
     }
 
     function cartNumbers () {
         let productNumbers = localStorage.getItem('cartNumbers');
 
-        productNumbers = parseInt(productNumbers);
+        productNumbers = JSON.stringify(productNumbers);
         localStorage.setItem('cartNumbers', 1);
-    }*/
 
+            
+    }
+    
 
-       /*
-        getColors().then(data=> {
-            let option;
-            Object.entries(data.colors).forEach(color => {
-              
-                option = document.createElement("option");
-                option.text =colors[1].name;
+}
 
-                colorSelect.add(option)
-            }
-                )
-        }
-            )*/
+     
+   
+
+/*
+<a id="add-cart " href="#">add cart </a>*/
+
+      
         
      
 
