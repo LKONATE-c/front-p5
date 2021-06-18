@@ -50,7 +50,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
    
 
     //-----------gestion du panier ------------//
-
+    /*
     let carts = document.querySelectorAll('#btn-add-cart');
    
     for (let i=0; i < carts.lenght; i++){
@@ -78,7 +78,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
      
    
 
-/*
+
 <a id="add-cart " href="#">add cart </a>*/
 
       
@@ -95,4 +95,4 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
 
 
 
-   
+
