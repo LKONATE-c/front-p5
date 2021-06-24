@@ -59,6 +59,13 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
       
           document.getElementById("add-cart").addEventListener('click', ()=>{
             cartNumbers();
+            const found = cart.find(e => e.id === toAdd.id); // dans l'événement click 
+            if (found) {
+                            found.quantity += 1;
+            } else {
+              toAdd.quantity = 1;
+              cart.push(toAdd);
+            }
           })
           /*
           //fonction pour garde les element dans le panier sur la barre de nav
@@ -72,18 +79,12 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
           //ajout produit au local storage
           function cartNumbers() {
              
-            //const cart =localStorage.getItem("cart", []) // Recupérer au localstorage
-            const cart = [{id: id , quantity: 4}, {id: id, quantity: 6}]; // Recupérer au localstorage
+            const cart =localStorage.getItem("cart", [{id:'',quantity:1}]) // Recupérer au localstorage
+           // const cart = [{id: id , quantity: 4}, {id: id, quantity: 6}]; // Recupérer au localstorage
  
 
             const toAdd = {id: id}; // l'ourson en cours 
-            const found = cart.find(e => e.id === toAdd.id); // dans l'événement click 
-            if (found) {
-                            found.quantity += 1;
-            } else {
-              toAdd.quantity = 1;
-              cart.push(toAdd);
-            }
+            
             // update localstorage 
             console.log(cart)
             
