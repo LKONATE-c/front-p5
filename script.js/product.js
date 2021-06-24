@@ -53,26 +53,46 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
    
 
     //-----------gestion du panier ------------//
-   
+        const cart = [
+            {_id: '${product._id}', name:'${product.name}',quantity:1, price:'${product.price / 100}',color:' ${option}'}
+        ];
     
       
           document.getElementById("add-cart").addEventListener('click', ()=>{
             cartNumbers();
           })
 
+          //fonction pour garde les element dans le panier sur la barre de nav
+          function onLoadcartNumbers() {
+            let productNumbers = localStorage.getItem("cartNumbers");
+            if(productNumbers){
+                document.querySelector('.nav-item span').textContent = productNumbers;
+            }
+          }
+
           //ajout produit au local storage
           function cartNumbers() {
 
             let productNumbers = localStorage.getItem("cartNumbers");
+            
 
             productNumbers = parseInt(productNumbers);
             
+            if (productNumbers){
+                localStorage.setItem("cartNumbers", productNumbers + 1);
+                document.querySelector('.nav-item span').textContent = productNumbers + 1;
 
-              localStorage.setItem("cartNumbers", 1);
+            }else {
+                localStorage.setItem("cartNumbers", 1);
+                document.querySelector('.nav-item span').textContent = 1;
+            }
+           
+              
 
           }
 
-          
+          onLoadcartNumbers();
+         
 
 
 
