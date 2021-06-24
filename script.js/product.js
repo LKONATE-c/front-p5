@@ -64,7 +64,9 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
           function cartNumbers() {
 
             let productNumbers = localStorage.getItem("cartNumbers");
-            console.log(productNumbers);
+
+            productNumbers = parseInt(productNumbers);
+            
 
               localStorage.setItem("cartNumbers", 1);
 
