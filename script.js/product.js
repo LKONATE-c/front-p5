@@ -1,3 +1,4 @@
+
 //donee pour 1 produit
 const searchParams = new URLSearchParams(window.location.search);
 
@@ -53,27 +54,46 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
    
 
     //-----------gestion du panier ------------//
-        const cart = [
-            {_id: '${product._id}', name:'${product.name}',quantity:1, price:'${product.price / 100}',color:' ${option}'}
-        ];
+       
     
       
           document.getElementById("add-cart").addEventListener('click', ()=>{
             cartNumbers();
           })
-
+          /*
           //fonction pour garde les element dans le panier sur la barre de nav
           function onLoadcartNumbers() {
             let productNumbers = localStorage.getItem("cartNumbers");
             if(productNumbers){
                 document.querySelector('.nav-item span').textContent = productNumbers;
             }
-          }
+          }*/
 
           //ajout produit au local storage
           function cartNumbers() {
+             
+            //const cart =localStorage.getItem("cart", []) // Recupérer au localstorage
+            const cart = [{id: id , quantity: 4}, {id: id, quantity: 6}]; // Recupérer au localstorage
+ 
 
-            let productNumbers = localStorage.getItem("cartNumbers");
+            const toAdd = {id: id}; // l'ourson en cours 
+            const found = cart.find(e => e.id === toAdd.id); // dans l'événement click 
+            if (found) {
+                            found.quantity += 1;
+            } else {
+              toAdd.quantity = 1;
+              cart.push(toAdd);
+            }
+            // update localstorage 
+            console.log(cart)
+            
+           
+             
+
+          }
+          /*
+          onLoadcartNumbers();
+          let productNumbers = localStorage.getItem("cartNumbers");
             
 
             productNumbers = parseInt(productNumbers);
@@ -83,18 +103,11 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                 document.querySelector('.nav-item span').textContent = productNumbers + 1;
 
             }else {
-                localStorage.setItem("cartNumbers", 1);
+                localStorage.setItem("cartNumbers", _id, 1 );
                 document.querySelector('.nav-item span').textContent = 1;
-            }
+            }*/
+
            
-              
-
-          }
-
-          onLoadcartNumbers();
-         
-
-
 
   
       
