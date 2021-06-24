@@ -18,16 +18,19 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
   });
   function displayProduct(product){
       
-    //Utilisation de map Fonction appelée pour chaque élément de colors
-      const map1 = product.colors.map(x => `<option value=${x}>${x}</option> ` );
+    //tableau pour les options
+      const option = product.colors.map(x => `<option value=${x}>${x}</option> ` ).join('');
 
-      const option = map1.join('');
+      
+
+      
+      
       
      
       document.getElementById("product").innerHTML +=
   
   
-      //UTILisation de backtik
+      //UTILisation de backtik pour afficher le produit selectionner
       `
      
       <div class="col-12 col-lg-4 mx-auto">
@@ -37,49 +40,51 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-price">Prix:&nbsp;${product.price / 100} &#8364;</p>
                     <p class="card-text">Description:${product.description}</p>
-                    <form>
-                        <label="colors-selection">choix de la couleur:</label>
+                    
+                        <label for="colors-selection">choix de la couleur:</label>
                         <select color="color-name" id="colors-selection">
                             ${option}
                         </select>
-                    </form>
-                    <button id="btn-add-cart " type="submit" name="btn-add-cart ">Ajouter au panier</buton>
+                   
+                    <button id="add-cart"  name="add-cart">Ajouter au panier</buton>
                 </div>   
             </div>
         </div>`
    
 
     //-----------gestion du panier ------------//
-    
-    let carts = document.querySelectorAll('#btn-add-cart');
    
-    for (let i=0; i < carts.lenght; i++){
-        carts[i].addEventlistener('click',() => {
-            cartNumbers();
-            
-
-        })
-       
-            
-    }
-
-    function cartNumbers () {
-        let productNumbers = localStorage.getItem('cartNumbers');
-
-        productNumbers = JSON.stringify(productNumbers);
-        localStorage.setItem('cartNumbers', 1);
-
-            
-    }
     
+      
+          document.getElementById("add-cart").addEventListener('click', ()=>{
+            cartNumbers();
+          })
+
+          //ajout produit au local storage
+          function cartNumbers() {
+
+            let productNumbers = localStorage.getItem("cartNumbers");
+            console.log(productNumbers);
+
+              localStorage.setItem("cartNumbers", 1);
+
+          }
+
+          
+
+
+
+  
+      
+
+  
+
+    
+
 
 }
-
-     
    
 
-/*
-<a id="add-cart " href="#">add cart </a>*/
 
       
         
@@ -95,4 +100,4 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
 
 
 
-
+   
