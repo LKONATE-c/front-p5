@@ -59,13 +59,14 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
       
           document.getElementById("add-cart").addEventListener('click', ()=>{
             cartNumbers();
-            const found = cart.find(e => e.id === toAdd.id); // dans l'événement click 
+            const found = cart.find(cart=> cart.id === toAdd.id); // dans l'événement click 
             if (found) {
                             found.quantity += 1;
             } else {
               toAdd.quantity = 1;
               cart.push(toAdd);
             }
+            // update localstorage 
           })
           /*
           //fonction pour garde les element dans le panier sur la barre de nav
@@ -84,8 +85,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
  
 
             const toAdd = {id: id}; // l'ourson en cours 
-            
-            // update localstorage 
+           
             console.log(cart)
             
            
