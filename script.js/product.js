@@ -55,7 +55,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
 
     //-----------gestion du panier ------------//
        
-    
+          let cart = "id", quantity = 1;
       
           document.getElementById("add-cart").addEventListener('click', ()=>{
             cartNumbers();
