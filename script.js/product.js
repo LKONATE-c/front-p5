@@ -46,7 +46,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                         <select color="color-name" id="colors-selection">
                             ${option}
                         </select>
-                   
+
                     <button id="add-cart"  name="add-cart">Ajouter au panier</buton>
                 </div>   
             </div>
@@ -54,71 +54,66 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
    
 
     //-----------gestion du panier ------------//
-       
-          let cart = "id", quantity = 1;
-      
+       let chooseProduct = {
+
+        name: product.name,
+        id: product._id,
+         incart: 0,
+         colors:  option,
+         price: product.price/ 100
+       }
+         
           document.getElementById("add-cart").addEventListener('click', ()=>{
-            cartNumbers();
-            const found = cart.find(cart=> cart.id === toAdd.id); // dans l'événement click 
-            if (found) {
-                            found.quantity += 1;
-            } else {
-              toAdd.quantity = 1;
-              cart.push(toAdd);
-            }
-            // update localstorage 
+            cartNumbers( chooseProduct );
           })
-          /*
-          //fonction pour garde les element dans le panier sur la barre de nav
+        }
+          
+        
+          
+          //fonction pour garde les element dans le panier sur la barre de nav//
           function onLoadcartNumbers() {
             let productNumbers = localStorage.getItem("cartNumbers");
+
             if(productNumbers){
                 document.querySelector('.nav-item span').textContent = productNumbers;
             }
-          }*/
-
-          //ajout produit au local storage
-          function cartNumbers() {
-             
-            const cart =localStorage.getItem("cart", [{id:'',quantity:1}]) // Recupérer au localstorage
-           // const cart = [{id: id , quantity: 4}, {id: id, quantity: 6}]; // Recupérer au localstorage
- 
-
-            const toAdd = {id: id}; // l'ourson en cours 
-           
-            console.log(cart)
-            
-           
-             
-
           }
-          /*
-          onLoadcartNumbers();
-          let productNumbers = localStorage.getItem("cartNumbers");
-            
 
+          //ajout produit au local storage//
+          function cartNumbers( chooseProduct ) {
+            console.log("test",  chooseProduct  )
+            let productNumbers = localStorage.getItem("cartNumbers");
+            
+          
             productNumbers = parseInt(productNumbers);
             
-            if (productNumbers){
+            if (productNumbers) {
                 localStorage.setItem("cartNumbers", productNumbers + 1);
                 document.querySelector('.nav-item span').textContent = productNumbers + 1;
 
-            }else {
-                localStorage.setItem("cartNumbers", _id, 1 );
+            } else {
+                localStorage.setItem("cartNumbers", 1 );
                 document.querySelector('.nav-item span').textContent = 1;
-            }*/
+            }
+            //ajout des info du produit au local storage
+           setItems(chooseProduct);
+         
+        }
+        function setItems(chooseProduct) {
+         
+          console.log("monboult", chooseProduct);
+          chooseProduct.incart = 1;
+
+          let cartItems = {
+            [chooseProduct.name]: chooseProduct
+          }
+          localStorage.setItems("chooseProductQuantity", cartItems);
+        }
+        
+        onLoadcartNumbers();
 
            
-
-  
-      
-
-  
-
-    
-
-
-}
+          
    
 
 
