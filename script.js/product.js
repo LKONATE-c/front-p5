@@ -107,7 +107,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
           let cartItems = {
             [chooseProduct.name]: chooseProduct
           }
-          localStorage.setItems("chooseProductQuantity", cartItems);
+          localStorage.setItem("chooseProductsIncart", JSON.stringify(cartItems));
         }
         
         onLoadcartNumbers();
