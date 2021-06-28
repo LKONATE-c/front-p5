@@ -81,7 +81,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
 
           //ajout produit au local storage//
           function cartNumbers( chooseProduct ) {
-            console.log("test",  chooseProduct  )
+          
             let productNumbers = localStorage.getItem("cartNumbers");
             
           
@@ -100,13 +100,29 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
          
         }
         function setItems(chooseProduct) {
-         
-          console.log("monboult", chooseProduct);
+         let cartItems = localStorage.getItem("chooseProductsIncart");
+         cartItems = JSON.parse(cartItems);
+         console.log("my items", cartItems);
+         if(cartItems != null) {
+            //ajout d'un produit différent//
+          if(cartItems[chooseProduct.name] == undefined) {
+            cartItems = {
+              ...cartItems,
+              [chooseProduct.name]: chooseProduct
+
+            }
+          }
+           cartItems[chooseProduct.name].incart += 1;
+         } else {
           chooseProduct.incart = 1;
 
-          let cartItems = {
-            [chooseProduct.name]: chooseProduct
-          }
+          cartItems = {
+           [chooseProduct.name]: chooseProduct
+         }
+
+         }
+          
+          
           localStorage.setItem("chooseProductsIncart", JSON.stringify(cartItems));
         }
         
