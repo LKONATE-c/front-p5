@@ -29,17 +29,13 @@ fetch(`http://localhost:3000/api/teddies/`)
     // Une erreur est survenue
   });
 
-
-
-
-
-
-
 function displaycart() {
 
     let cartItems = localStorage.getItem("chooseProductsIncart");
     cartItems = JSON.parse(cartItems);
     console.log(cartItems);
 }
+
+displaycart();
    
 
