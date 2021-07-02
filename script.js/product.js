@@ -66,6 +66,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
           document.getElementById("add-cart").addEventListener('click', ()=>{
             cartNumbers( chooseProduct );
             totalCost(chooseProduct);
+            
           })
         }
           
@@ -128,10 +129,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
           //console.log("product price", chooseProduct.price);//
 
           let cartCost = localStorage.getItem("totalCost");
-         
-          
-          console.log("my cartCost", cartCost);
-          console.log(typeof cartCost);
+        
 
           if(cartCost != null) {
             cartCost = parseInt(cartCost);
@@ -140,10 +138,8 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
           } else{
             localStorage.setItem("totalCost", chooseProduct.price);
           }
-         
-          
-
         }
+        
         
         onLoadcartNumbers();
 
