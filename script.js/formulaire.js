@@ -1,12 +1,13 @@
-document.forms["coordonnee"].addEventlistener("submit",function(e){
+
+//validation du formulaire
+document.forms["coordonnee"].addEventListener("submit", function(e) {
 
     let erreur;
 
     let inputs = this;
 
-    for(let i = 0; i < inputs.lenght; i++) {
-
-        if(!inputs[i].value) {
+    for (let i = 0; i < inputs.lenght; i++) {
+        if (!inputs[i].value) {
             erreur = "veuillez renseigner tous les champs";
             break;
         }

@@ -1,64 +1,33 @@
+
 //creation de variable
 let teddies =  localStorage.getItem("chooseProductsIncart");
-let priceTotal =localStorage.getItem("totalCost");
+let priceTotal = localStorage.getItem("totalCost");
 
-fetch("http://localhost:3000/api/teddies")
-.then(function(res) {
-    if (res.ok) {
-      return res.json();
-    }
-  })
-  .then(function(chooseProduct) {
-     
-   displayProduct(chooseProduct)
-  })  
-  .catch(function(err) {
-    // Une erreur est survenue
-  });
+ //permet de voir ce qui a ete ajouté au panier au directement ds le local storage
+function getTeddie(){
+    let teddie = localStorage.getItem("chooseProductsIncart");
+    teddie = JSON.parse(teddie);
+    for (i = 0; 1 < teddie.length; 1++){
+        if(teddie[i]){
+            let template = {
+                tr: document.createElement("tr"),
+                td: document.createElement("td"),
+                tdName: document.createElement("td"),
+                tdQuantity: document.createElement("td"),
+                tdPrice: document.createElement("td")
+            }
+            table.appendChild(template.tr);
 
-  function displayProduct(chooseProduct){
+            template.tr.appendChild(template.td);
+            template.td.textContent = teddie[i].id;
 
-    document.getElementById("chooseproduct").innerHTML +=
-    `
-    <div class="row" id="chooseproduct">
-            <div class="product-panier">
-                <div class="product-header">
-                    <h5 class="product-name">name</h5>
-                    <h5 class="price">Price</h5>
-                    <h5 class="quantity">Quantity</h5>
-                    <h5 class="total">Total</h5>
-                </div>
+            template.tr.appendChild(template.tdName);
+            template.tdName.textContent = teddie[i].name;
+        }
 
-
-    `
-    
-}
-  
-// permet de voir ce qui a ete ajouté au panier au directement ds le local storage
-function displaycart() {
-
-    let cartItems = localStorage.getItem("chooseProductsIncart");
-    cartItems = JSON.parse(cartItems);
-    console.log(cartItems);
-    let productPanier = document.querySelector("product-panier");
-    if(cartItems && productPanier) {
-        console.log("boooo");
     }
 }
 
-displaycart();
+
+
    
-
-
-
-
-//variable pour formulaires de contact
-
-let formNom = document.getElementById("nom");
-let formPrenom = document.getElementById("prenom");
-let formMail =  document.getElementById("mail");
-let formAdresse =  document.getElementById("adresse");
-let formVille =  document.getElementById("ville");
-let formCodePostal =  document.getElementById("code-postal");
-
-let validation = document.getElementsById('bouton-envoie')
