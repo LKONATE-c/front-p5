@@ -6,7 +6,7 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
 
     let inputs = this;
 
-    for (let i = 0; i < inputs.lenght; i++) {
+    for (let i = 0; i < inputs.length; i++) {
         if (!inputs[i].value) {
             erreur = "veuillez renseigner tous les champs";
             break;
@@ -18,7 +18,7 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
-        alert('formulaire envoyé !');
+        fetch 
     }
 })
 

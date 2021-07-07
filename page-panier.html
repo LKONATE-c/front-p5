@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="cssperso.css" />
 
 
     <title>ORINOCO</title>
@@ -66,29 +67,33 @@
 
         
         
-            <div class="product-panier">
-                <div class="product-header">
-                    <h5 class="product-name">name</h5>
-                    <h5 class="price">Price</h5>
-                    <h5 class="quantity">Quantity</h5>
-                    <h5 class="total">Total</h5> 
-                </div>
-                <div class="products">
+            <table class="product-panier">
+                <thead class="product-header">
+                    
 
-                </div>
+                    <tr>
+                        <th class="product-name">name</th>
+                        <th class="price">Price</th>
+                        <th class="quantity">Quantity</th>
+                        
+                </thead>
+                <th class="totat-price">prix total</th>
+                <tbody id="products">
+
+                </tbody>
                 
-            </div>
+            </table>
         
             <h1>Vos coordonnées !</h1>
-            <form method="POST" name="coordonnee">
+            <form  name="coordonnee">
                 <div class="form-group col-12">
                     <label>Nom</label>
-                    <input type="texte" name="nom" class="form-control" placeholder="dupond" >
+                    <input type="texte" name="nom" class="form-control" pattern="[A-Z][A-Za-z' -]+" placeholder="dupond" >
                 </div>
 
                 <div class="form-group col-12">
                     <label>Prénom</label>
-                    <input type="texte" name="prenom" class="form-control" placeholder="jumien" >
+                    <input type="texte" name="prenom" class="form-control" pattern="[A-Z][A-Za-z' -]+" placeholder="jumien" >
                 </div>
 
                 <div class="form-group col-12">
@@ -98,18 +103,18 @@
 
                 <div class="form-group col-12">
                     <label>Adresse</label>
-                    <input type="text" name="adresse" class="form-control" placeholder="4 rue raymond carre" >
+                    <input type="text" name="adresse" class="form-control" pattern="[a-zA-Z0-9]" placeholder="4 rue raymond carre" >
                 </div>
 
                 <div class="form-group col-12">
                     <label>Ville</label>
-                    <input type="text" name="ville" class="form-control" placeholder="paris" >
+                    <input type="text" name="ville" class="form-control" pattern="[A-Z][A-Za-z' -]+" placeholder="paris" >
                 </div>
 
                 <div class="form-group col-12">
                     <label>Code postal</label>
 
-                    <input type="codepostal" name="codepostal" class="form-control" min="0" placeholder="75000" >
+                    <input type="texte" name="codepostal" class="form-control" pattern="[0-9]{5}"   placeholder="75000" >
                 </div>
 
                

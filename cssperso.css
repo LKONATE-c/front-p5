@@ -1,0 +1,38 @@
+
+
+.product-panier {
+    max-width: 700px;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.product-header {
+  width: 100%;
+  max-width: 700px;
+  
+  justify-content: flex-start;
+  border-bottom: 5px solid rgb(243,233,241);
+  margin: 0 auto;
+}
+
+.product-name {
+  width: 40%;
+}
+
+.price {
+  width: 20%;
+}
+
+.quantity {
+  width: 15%;
+}
+
+
+input:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:valid {
+    border: 1px solid black;
+  }
