@@ -18,7 +18,17 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
-        fetch 
+        function sendOrder(e){
+            e.preventDefault();
+            fetch("", {
+              method: "POST",
+              headers: {
+                'Accept': 'application/json', 
+                'Content-Type': 'application/json ; charset="UTF-8'
+              },
+              body: JSON.stringify({coordonnee: document.getElementsByTagName("coordonnee").coordonnee})
+            })
+        }
     }
 })
 

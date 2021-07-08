@@ -222,10 +222,7 @@ samp {
   unicode-bidi: bidi-override;
 }
 
-.form-inline{
-  display: flex;
-  
-}
+
 
 pre {
   display: block;
