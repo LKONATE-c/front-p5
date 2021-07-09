@@ -34,7 +34,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
       //UTILisation de backtik pour afficher le produit selectionner
       `
      
-      <div class="col-12 col-lg-4 mx-auto">
+      <div class="col-12 col-lg-6 mx-auto">
           <div class="card">
               <img class=”card-img-top” src="${product.imageUrl}" alt="">
               <div class="card-body">

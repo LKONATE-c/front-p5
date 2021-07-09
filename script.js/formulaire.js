@@ -18,18 +18,31 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
-        function sendOrder(e){
-            e.preventDefault();
-            fetch("", {
+        
+            fetch("http://127.0.0.1:5500/page-confirmation.html", {
               method: "POST",
               headers: {
                 'Accept': 'application/json', 
                 'Content-Type': 'application/json ; charset="UTF-8'
               },
-              body: JSON.stringify({coordonnee: document.getElementsByTagName("coordonnee").coordonnee})
+              body: JSON.stringify({value: document.getElementsByTagName("coordonnee").value})
+              
             })
-        }
+            .then(function(res) {
+                if (res.ok) {
+                  return res.json();
+                }
+              })
+              .then(function(value) {
+                document.getElementById("totat-price")
+
+                window.location.assign("/page-confirmation.html");
+              });
+            
+        
+            
     }
+    
 })
 
 
