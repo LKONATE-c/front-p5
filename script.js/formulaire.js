@@ -1,12 +1,14 @@
 
-//validation du formulaire
-document.getElementById("coordonnee").addEventListener("submit", function(e) {
+//validation du formulaire 
 
+document.forms["coordonnee"].addEventListener("submit", function(e) {
+  console.log("boo");
     let erreur;
 
-    let inputs = this.getElementsByTagName("input");
-
+    let inputs = this;
+    console.log("taf");
     for (let i = 0; i < inputs.length; i++) {
+      
         if (!inputs[i].value) {
             erreur = "veuillez renseigner tous les champs";
            
@@ -18,14 +20,15 @@ document.getElementById("coordonnee").addEventListener("submit", function(e) {
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
-
-        let firstName  = document.getElementById("firstname").value;
-        let Lastname = document.getElementById("lastname").value;
+              
+        let firstname  = document.getElementById("firstname").value;
+        let lastname = document.getElementById("lastname").value;
         let email = document.getElementById("email").value;
         let adress = document.getElementById("adress").value;
-        let ville = document.getElementById("city").value;
-        
-            fetch("", {
+        let city = document.getElementById("city").value;
+        console.log(firstname);
+       
+            fetch("http://localhost:3000/page-confirmation.html", {
               method: "POST",
               headers: {
                 'Accept': 'application/json', 
@@ -33,11 +36,11 @@ document.getElementById("coordonnee").addEventListener("submit", function(e) {
               },
               body: JSON.stringify({
                   coordonnee: {
-                      firstName:firstname,
-                      Lastname:lastname,
+                      firstname:firstname,
+                      lastname:lastname,
                       email:email,
                       adress:adress,
-                      ville:city
+                      city:city
 
 
                   }
@@ -45,21 +48,23 @@ document.getElementById("coordonnee").addEventListener("submit", function(e) {
               
             })
             .then(function(res) {
+            
+              console.log(fetcccccccccccccccc);
                 if (res.ok) {
+                  
                   return res.json();
                 }
               })
               .then(function(data) {
-                //document.getElementById("totat-price")
+                document.getElementById("totat-price")
 
-                //window.location.assign("");
+                window.location.assign("http://localhost:3000/page-confirmation.html");
               });
             
         
             
-    }
-    
-})
+    } 
+});
 
 
 
