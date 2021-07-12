@@ -2,11 +2,11 @@
 //validation du formulaire 
 
 document.forms["coordonnee"].addEventListener("submit", function(e) {
-  console.log("boo");
+  
     let erreur;
 
     let inputs = this;
-    console.log("taf");
+   
     for (let i = 0; i < inputs.length; i++) {
       
         if (!inputs[i].value) {
@@ -26,13 +26,13 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
         let email = document.getElementById("email").value;
         let adress = document.getElementById("adress").value;
         let city = document.getElementById("city").value;
-        console.log(firstname);
        
-            fetch("http://localhost:3000/page-confirmation.html", {
+       
+            fetch("http://page-confirmation.html", {
               method: "POST",
               headers: {
                 'Accept': 'application/json', 
-                'Content-Type': 'application/json ; charset="UTF-8'
+                'Content-Type': 'application/json ; charset=UTF-8'
               },
               body: JSON.stringify({
                   coordonnee: {
@@ -42,23 +42,24 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
                       adress:adress,
                       city:city
 
-
                   }
               })
               
             })
             .then(function(res) {
             
-              console.log(fetcccccccccccccccc);
+              
                 if (res.ok) {
                   
                   return res.json();
                 }
               })
-              .then(function(data) {
-                document.getElementById("totat-price")
-
-                window.location.assign("http://localhost:3000/page-confirmation.html");
+              .then(function(confirmation) {
+                
+                confirmation.Price = totat-price;
+                let result = document.getElementById('result');
+                localStorage.setItem("order",JSON.stringify(confirmation));
+                window.location.assign("http://page-confirmation.html");
               });
             
         
