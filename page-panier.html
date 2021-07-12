@@ -20,8 +20,8 @@
             <div class="row">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
                     <a href="https://user.oc-static.com/upload/2019/09/04/15675819263013_image1.png" class="oc-imageLink oc-imageLink--disabled"><img src="https://user.oc-static.com/upload/2019/09/04/15675819263013_image1.png" width="100" height="60" alt="Le logo d'Orinoco"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                        
                         
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -84,21 +84,24 @@
                 <tbody id="products">
                    
                 </tbody>
-                <th id="totat-price">Total price :</th>
+                
             </table>
-
-            
+            <table class="all-product-price">
+                <tr>
+                <th id="totat-price">Total price :</th>
+                </tr>
+            </table>
         
             <h1>Vos coordonnées !</h1>
             <form  id="coordonnee">
                 <div class="form-group col-12">
                     <label>Nom</label>
-                    <input type="texte" name="firstname" class="form-control" pattern="[A-Z][A-Za-z' -]+" placeholder="Karl"  id="firstname" required title="le nom dois commencer par une majuscule" >
+                    <input type="text" name="firstname" class="form-control" pattern="[A-Z][A-Za-z' -]+" placeholder="Karl"  id="firstname" required title="le nom dois commencer par une majuscule" >
                 </div>
 
                 <div class="form-group col-12">
                     <label>Prénom</label>
-                    <input type="texte" name="lastname"  class="form-control" pattern="[A-Z][A-Za-z' -]+" placeholder="Julien" id="lastname" required title="le prénom dois commencer par une majuscule" >
+                    <input type="text" name="lastname"  class="form-control" pattern="[A-Z][A-Za-z' -]+" placeholder="Julien" id="lastname" required title="le prénom dois commencer par une majuscule" >
                 </div>
 
                 <div class="form-group col-12">
@@ -120,7 +123,7 @@
 
                 <div class="form-group col-12">
                     <label>Code postal</label>
-                    <input type="texte" name="codepostal" class="form-control" pattern="[0-9]{5}"   placeholder="75000"required id="codepostal" title="code postal dois avoir 5 chiffres" >
+                    <input type="text" name="codepostal" class="form-control" pattern="[0-9]{5}"   placeholder="75000" required id="codepostal" title="code postal dois avoir 5 chiffres" >
                      
                 </div>
 
@@ -130,7 +133,7 @@
                 </div>
             </form>
             <div id="results">
-                
+
             </div>
              <p style="color: red;" id="erreur"></p>
 
