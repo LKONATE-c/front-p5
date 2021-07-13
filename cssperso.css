@@ -81,7 +81,3 @@ table, th, td {
   input:valid {
     border: 1px solid black;
   }
-.card{
-  justify-content: space-between;
-  height: 250px;
-}

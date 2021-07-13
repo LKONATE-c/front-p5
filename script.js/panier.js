@@ -1,3 +1,7 @@
+let bear = [] ;
+
+
+
 
 
 //recuperation des produits ds le local storage
@@ -5,6 +9,7 @@ function getTeddie(){
     const teddies = JSON.parse(localStorage.getItem("chooseProductsIncart")) || [];
     
     for (const [name,teddie] of Object.entries(teddies)){
+        bear.push (teddie.id);
         document.getElementById("products").innerHTML +=
         `
         <tr>

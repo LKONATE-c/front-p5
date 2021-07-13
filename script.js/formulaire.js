@@ -2,7 +2,7 @@
 //validation du formulaire 
 
 document.forms["coordonnee"].addEventListener("submit", function(e) {
-  
+  e.preventDefault();
     let erreur;
 
     let inputs = this;
@@ -28,21 +28,22 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
         let city = document.getElementById("city").value;
        
        
-            fetch("http://page-confirmation.html", {
+            fetch("http://localhost:3000/api/teddies/order", {
               method: "POST",
               headers: {
                 'Accept': 'application/json', 
                 'Content-Type': 'application/json ; charset=UTF-8'
               },
               body: JSON.stringify({
-                  coordonnee: {
-                      firstname:firstname,
-                      lastname:lastname,
+                  contact: {
+                      firstName:firstName,
+                      lastName:lastName,
                       email:email,
-                      adress:adress,
+                      address:address,
                       city:city
 
-                  }
+                  },
+                  products:bear
               })
               
             })
@@ -56,10 +57,14 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
               })
               .then(function(confirmation) {
                 
-                confirmation.Price = totat-price;
-                let result = document.getElementById('result');
+              confirmation.price = JSON.parse(localStorage.getItem("totalCost"))
+               localStorage.removeItem("totalCost");
+               localStorage.removeItem("chooseProductsIncart");
+               localStorage.removeItem("cartNumbers");
+                
                 localStorage.setItem("order",JSON.stringify(confirmation));
-                window.location.assign("http://page-confirmation.html");
+
+                window.location.assign("/page-confirmation.html")
               });
             
         

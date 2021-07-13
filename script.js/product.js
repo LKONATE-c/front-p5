@@ -81,13 +81,14 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
             }
           }
 
-          //ajout produit au local storage//
+          //ajout produit a la quantité//
           function cartNumbers( chooseProduct ) {
           
             let productNumbers = localStorage.getItem("cartNumbers");
             
           
             productNumbers = parseInt(productNumbers);
+            
             
             if (productNumbers) {
                 localStorage.setItem("cartNumbers", productNumbers + 1);
