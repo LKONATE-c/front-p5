@@ -15,7 +15,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
    displayProduct(product)
   })  
   .catch(function(err) {
-    // Une erreur est survenue
+    alert("attention une erreur a été rencontré");
   });
   function displayProduct(product){
       

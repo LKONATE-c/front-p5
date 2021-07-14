@@ -1,5 +1,5 @@
 
-  //RECUPERATTION DONNE API
+  //RECUPERATTION DONNE GRACE A L API
 fetch("http://localhost:3000/api/teddies")
 
 
@@ -12,7 +12,7 @@ fetch("http://localhost:3000/api/teddies")
  displayProducts(products)
 })  
 .catch(function(err) {
-  // Une erreur est survenue
+  alert("une erreur est survenue" );
 });
 function displayProducts(products){
   for(const product of products){
