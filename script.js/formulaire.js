@@ -21,10 +21,10 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
         return false;
     } else {
               
-        let firstname  = document.getElementById("firstname").value;
-        let lastname = document.getElementById("lastname").value;
+        let firstName  = document.getElementById("firstName").value;
+        let lastName = document.getElementById("lastName").value;
         let email = document.getElementById("email").value;
-        let adress = document.getElementById("adress").value;
+        let address = document.getElementById("address").value;
         let city = document.getElementById("city").value;
        
        
@@ -64,7 +64,7 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
                 
                 localStorage.setItem("order",JSON.stringify(confirmation));
 
-                window.location.assign("/page-confirmation.html")
+                window.location.assign("./page-confirmation.html");
               });
             
         
