@@ -30,7 +30,7 @@ function getprice(){
     const price = JSON.parse(localStorage.getItem("totalCost"))
     
     if (price === null ) {
-        console.log("pppprr");
+       
         return 0;
     }
     
