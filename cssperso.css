@@ -81,3 +81,8 @@ table, th, td {
   input:valid {
     border: 1px solid black;
   }
+
+  .card {
+    margin-bottom: 20px;
+    margin-top: 50px;
+  }
