@@ -36,21 +36,11 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="./products.html">Produits</a>
                             </li>
-                            <li class="nav-item">
-                                
-                                <a class="nav-link" href="">Quantité&nbsp;<span>0</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="page-panier.html">Votre commande</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./page-confirmation.html">Confirmation de la commande</a>
-                            </li>
+                            
+                           
+                            
                         </ul>
-                        <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                            <button class="btn btn-primary" type="submit">Envoyer</button>       
-                        </form>
+                        
                     </div>
                 </nav>
             </div>
@@ -74,9 +64,9 @@
             <table class="product-panier">
                 <thead class="product-header">  
                     <tr>
-                        <th class="product-name">name</th>
-                        <th class="price">Price</th>
-                        <th class="quantity">Quantity</th>
+                        <th class="product-name">Nom</th>
+                        <th class="price">Prix</th>
+                        <th class="quantity">Quantité</th>
                         
                     </tr>
                 </thead>
@@ -88,7 +78,7 @@
             </table>
             <table class="all-product-price">
                 <tr>
-                <th id="totat-price">Total price :</th>
+                <th id="totat-price"> price Total : &nbsp;</th>
                 </tr>
             </table>
         
@@ -113,7 +103,7 @@
 
                 <div class="form-group col-12">
                     <label>Adresse</label>
-                    <input type="text" name="address" class="form-control"  placeholder="4 raymond carre"  id="address" required title="veuillez indiquer votre lieu de residence avec numero de rue et lieu" >
+                    <input type="text" name="address" class="form-control" pattern="/\w/g" placeholder="4 raymond carre"  id="address" required title="veuillez indiquer votre lieu de residence avec numero de rue et lieu" >
                 </div>
 
                 <div class="form-group col-12">

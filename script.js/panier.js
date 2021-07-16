@@ -1,7 +1,6 @@
+
+//creation d'une variable pour recuperer id 
 let bear = [] ;
-
-
-
 
 
 //recuperation des produits ds le local storage
@@ -28,7 +27,10 @@ function getTeddie(){
 //recuperation du prix total ds le local storage 
 function getprice(){
     const price = JSON.parse(localStorage.getItem("totalCost"))
-    console.log(price);
+    if (price === null) {
+        return 0;
+    }
+    
     document.getElementById("totat-price").innerHTML +=
     ` 
     <div id="totat-price">${price} &#8364;</div>
