@@ -3,10 +3,7 @@
 .bg-dark{
     background-color:hsl(311,27%,92%) !important;
 }
-.form-inline{
-    display: flex;
-    
-  }
+
 
   .navbar-dark .navbar-nav .nav-link {
      color:black; 
@@ -25,7 +22,7 @@ a {
 
 
 
-
+/*tableau page panier*/
 
 table, th, td {
     border: 1px solid black;
@@ -85,4 +82,5 @@ table, th, td {
   .card {
     margin-bottom: 20px;
     margin-top: 50px;
+    
   }

@@ -20,6 +20,7 @@ document.forms["coordonnee"].addEventListener("submit", function(e) {
         document.getElementById("erreur").innerHTML = erreur;
         return false;
     } else {
+              //envoie des donnees pour le formulaire bien rempli//
               
         let firstName  = document.getElementById("firstName").value;
         let lastName = document.getElementById("lastName").value;

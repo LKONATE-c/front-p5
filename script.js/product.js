@@ -107,7 +107,7 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
          cartItems = JSON.parse(cartItems);
         
          if(cartItems != null) {
-            //ajout d'un produit différent//
+            //ajout d'un produit différent pour ne pas ecrase si on ajoute plusieur produit//
           if(cartItems[chooseProduct.name] == undefined) {
             cartItems = {
               ...cartItems,
